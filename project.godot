@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="DetectivesJournal"
+run/main_scene="uid://c0o633maxxj64"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/autoload/GameManager.gd"
+SaveSystem="*res://scripts/autoload/SaveSystem.gd"
+
+[rendering]
+
+renderer/rendering_method="mobile"

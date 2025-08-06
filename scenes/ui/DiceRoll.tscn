@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://briyp4rbn00e6"]
+
+[ext_resource type="Script" uid="uid://dpxohbcuv82ag" path="res://scripts/main.gd" id="1_5dwo8"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5dwo8")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Detective's Journal Test\\nPress SPACE to save, ESC to load\\nCheck console for output"
+
+[node name="DiceRoll" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
