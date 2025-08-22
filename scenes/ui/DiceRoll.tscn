@@ -1,17 +1,62 @@
 [gd_scene load_steps=2 format=3 uid="uid://briyp4rbn00e6"]
 
-[ext_resource type="Script" uid="uid://dpxohbcuv82ag" path="res://scripts/main.gd" id="1_5dwo8"]
+[ext_resource type="Script" path="res://scripts/ui/DiceRoll.gd" id="1_dice_script"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_5dwo8")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Detective's Journal Test\\nPress SPACE to save, ESC to load\\nCheck console for output"
-
-[node name="DiceRoll" type="Control" parent="."]
+[node name="DiceRoll" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_dice_script")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+
+[node name="SkillLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rolling Observation (+2)"
+horizontal_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Target: 11 (Medium)"
+horizontal_alignment = 1
+
+[node name="RollButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Roll Dice"
+
+[node name="ResultContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DiceResultLabel" type="Label" parent="VBoxContainer/ResultContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="TotalLabel" type="Label" parent="VBoxContainer/ResultContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="OutcomeLabel" type="Label" parent="VBoxContainer/ResultContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/RollButton" to="." method="_on_roll_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
