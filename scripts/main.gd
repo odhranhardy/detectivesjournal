@@ -41,13 +41,3 @@ func _on_dice_test_pressed():
 	print("Opening dice test scene...")
 	get_tree().change_scene_to_file("res://scenes/ui/DiceTest.tscn")
 
-func _input(event):
-	# Keep debug functionality for development
-	if event.is_action_pressed("ui_accept"):  # Space or Enter
-		print("Debug: Testing save system...")
-		SaveSystem.save_game()
-		_update_continue_button()
-	
-	if event.is_action_pressed("ui_cancel"):  # Escape
-		print("Debug: Testing load system...")
-		SaveSystem.load_game()
