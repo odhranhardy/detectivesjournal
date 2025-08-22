@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2sq7ug2kgsex"]
+[gd_scene load_steps=3 format=3 uid="uid://2sq7ug2kgsex"]
 
 [ext_resource type="Script" uid="uid://b56socggulo1l" path="res://scripts/ui/DiceTest.gd" id="1_dicetest_script"]
+[ext_resource type="Theme" path="res://scenes/ui/DetectiveTheme.tres" id="2_detective_theme"]
 
 [node name="DiceTest" type="Control"]
 layout_mode = 3
@@ -9,37 +10,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_detective_theme")
 script = ExtResource("1_dicetest_script")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -75.0
-offset_right = 100.0
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.15, 0.12, 0.1, 1)
 
-[node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Dice Rolling Test"
-horizontal_alignment = 1
-
-[node name="ObservationButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Test Observation Roll"
-
-[node name="RhetoricButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Test Rhetoric Roll"
-
-[node name="DiceRollContainer" type="VBoxContainer" parent="."]
-visible = false
+[node name="MenuPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,38 +34,121 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SkillLabel" type="Label" parent="DiceRollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="MenuPanel/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 24
+text = "🎲 Dice Rolling Test"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="ObservationButton" type="Button" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 45)
+text = "🔍 Test Observation Roll"
+
+[node name="ButtonSpacer1" type="Control" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 8)
+
+[node name="RhetoricButton" type="Button" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 45)
+text = "💬 Test Rhetoric Roll"
+
+[node name="DiceRollPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiceRollContainer" type="VBoxContainer" parent="DiceRollPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="SkillLabel" type="Label" parent="DiceRollPanel/DiceRollContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 20
 text = "Rolling Observation (+2)"
 horizontal_alignment = 1
 
-[node name="DifficultyLabel" type="Label" parent="DiceRollContainer"]
+[node name="DifficultyLabel" type="Label" parent="DiceRollPanel/DiceRollContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.75, 0.65, 1)
+theme_override_font_sizes/font_size = 16
 text = "Target: 11 (Medium)"
 horizontal_alignment = 1
 
-[node name="RollButton" type="Button" parent="DiceRollContainer"]
+[node name="Spacer2" type="Control" parent="DiceRollPanel/DiceRollContainer"]
 layout_mode = 2
-text = "Roll Dice"
+custom_minimum_size = Vector2(0, 15)
 
-[node name="DiceResultLabel" type="Label" parent="DiceRollContainer"]
+[node name="RollButton" type="Button" parent="DiceRollPanel/DiceRollContainer"]
 layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+text = "🎲 Roll Dice"
+
+[node name="Spacer3" type="Control" parent="DiceRollPanel/DiceRollContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="DiceResultLabel" type="Label" parent="DiceRollPanel/DiceRollContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 
-[node name="TotalLabel" type="Label" parent="DiceRollContainer"]
+[node name="TotalLabel" type="Label" parent="DiceRollPanel/DiceRollContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 
-[node name="OutcomeLabel" type="Label" parent="DiceRollContainer"]
+[node name="OutcomeLabel" type="Label" parent="DiceRollPanel/DiceRollContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="DiceRollContainer"]
+[node name="Spacer4" type="Control" parent="DiceRollPanel/DiceRollContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+
+[node name="ContinueButton" type="Button" parent="DiceRollPanel/DiceRollContainer"]
 visible = false
 layout_mode = 2
-text = "Continue"
+custom_minimum_size = Vector2(0, 45)
+text = "✓ Continue"
 
-[connection signal="pressed" from="VBoxContainer/ObservationButton" to="." method="_on_observation_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/RhetoricButton" to="." method="_on_rhetoric_button_pressed"]
-[connection signal="pressed" from="DiceRollContainer/RollButton" to="." method="_on_roll_button_pressed"]
-[connection signal="pressed" from="DiceRollContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VBoxContainer/ObservationButton" to="." method="_on_observation_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VBoxContainer/RhetoricButton" to="." method="_on_rhetoric_button_pressed"]
+[connection signal="pressed" from="DiceRollPanel/DiceRollContainer/RollButton" to="." method="_on_roll_button_pressed"]
+[connection signal="pressed" from="DiceRollPanel/DiceRollContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

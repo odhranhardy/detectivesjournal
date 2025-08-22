@@ -1,14 +1,14 @@
 extends Control
 
-@onready var test_buttons = $VBoxContainer
-@onready var dice_roll_ui = $DiceRollContainer
-@onready var skill_label = $DiceRollContainer/SkillLabel
-@onready var difficulty_label = $DiceRollContainer/DifficultyLabel
-@onready var roll_button = $DiceRollContainer/RollButton
-@onready var dice_result_label = $DiceRollContainer/DiceResultLabel
-@onready var total_label = $DiceRollContainer/TotalLabel
-@onready var outcome_label = $DiceRollContainer/OutcomeLabel
-@onready var continue_button = $DiceRollContainer/ContinueButton
+@onready var test_buttons = $MenuPanel
+@onready var dice_roll_ui = $DiceRollPanel
+@onready var skill_label = $DiceRollPanel/DiceRollContainer/SkillLabel
+@onready var difficulty_label = $DiceRollPanel/DiceRollContainer/DifficultyLabel
+@onready var roll_button = $DiceRollPanel/DiceRollContainer/RollButton
+@onready var dice_result_label = $DiceRollPanel/DiceRollContainer/DiceResultLabel
+@onready var total_label = $DiceRollPanel/DiceRollContainer/TotalLabel
+@onready var outcome_label = $DiceRollPanel/DiceRollContainer/OutcomeLabel
+@onready var continue_button = $DiceRollPanel/DiceRollContainer/ContinueButton
 
 var skill_name: String = ""
 var skill_modifier: int = 0
