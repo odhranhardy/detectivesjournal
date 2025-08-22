@@ -25,9 +25,36 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="GameTitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Detective's Journal Test
-Press SPACE to save, ESC to load
-Check console for output"
+text = "The Detective's Journal"
 horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New Case"
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continue Investigation"
+
+[node name="DiceTestButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Test Dice System"
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="DebugLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Debug: SPACE to save, ESC to load"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/DiceTestButton" to="." method="_on_dice_test_pressed"]
