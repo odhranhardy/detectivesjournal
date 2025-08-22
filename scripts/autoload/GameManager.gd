@@ -42,11 +42,11 @@ func start_case(case_id: String) -> bool:
 
 func perform_action(action_id: String) -> Dictionary:
 	"""Perform an investigation action and return result"""
-	if action_id not in available_actions:
+	if not available_actions.has(action_id):
 		print("Action not available: ", action_id)
 		return {"success": false, "error": "Action not available"}
 	
-	if action_id in completed_actions:
+	if completed_actions.has(action_id):
 		print("Action already completed: ", action_id)
 		return {"success": false, "error": "Action already completed"}
 	
@@ -66,7 +66,7 @@ func perform_action(action_id: String) -> Dictionary:
 	}
 
 func discover_clue(clue_id: String):
-	if clue_id not in discovered_clues:
+	if not discovered_clues.has(clue_id):
 		discovered_clues.append(clue_id)
 		var clue_data = CaseLoader.get_clue_data(current_case_data, clue_id)
 		clue_discovered.emit(clue_id)
