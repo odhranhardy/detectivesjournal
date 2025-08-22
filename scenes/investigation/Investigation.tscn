@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://investigation_scene"]
 
 [ext_resource type="Script" path="res://scripts/investigation/Investigation.gd" id="1_investigation_script"]
-[ext_resource type="Theme" path="res://scenes/ui/DetectiveTheme.tres" id="2_detective_theme"]
+[ext_resource type="Theme" uid="uid://dodk3je23f6rj" path="res://scenes/ui/DetectiveTheme.tres" id="2_detective_theme"]
 
 [node name="Investigation" type="Control"]
 layout_mode = 3
@@ -27,6 +27,8 @@ offset_left = 40.0
 offset_top = 40.0
 offset_right = -40.0
 offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -66,6 +68,8 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = -20.0
 offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ActionsLabel" type="Label" parent="ScrollContainer/VBoxContainer/ActionsPanel/ActionsVBox"]
 layout_mode = 2
@@ -97,6 +101,8 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = -20.0
 offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CluesLabel" type="Label" parent="ScrollContainer/VBoxContainer/CluesPanel/CluesVBox"]
 layout_mode = 2
