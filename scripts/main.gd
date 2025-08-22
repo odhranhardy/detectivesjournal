@@ -1,5 +1,5 @@
 # scripts/Main.gd
-extends Node2D
+extends Control
 
 func _ready():
 	print("=== Detective's Journal - Test Scene ===")
