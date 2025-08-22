@@ -1,69 +1,125 @@
-[gd_scene load_steps=2 format=3 uid="uid://investigation_scene"]
+[gd_scene load_steps=3 format=3 uid="uid://investigation_scene"]
 
 [ext_resource type="Script" path="res://scripts/investigation/Investigation.gd" id="1_investigation_script"]
+[ext_resource type="Theme" path="res://scenes/ui/DetectiveTheme.tres" id="2_detective_theme"]
 
 [node name="Investigation" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource("2_detective_theme")
 script = ExtResource("1_investigation_script")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.15, 0.12, 0.1, 1)
 
-[node name="CaseTitle" type="Label" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CaseTitle" type="Label" parent="ScrollContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 32
 text = "Case Title"
 horizontal_alignment = 1
 
-[node name="CaseDescription" type="Label" parent="VBoxContainer"]
+[node name="CaseDescription" type="Label" parent="ScrollContainer/VBoxContainer/TitleContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.75, 0.65, 1)
+theme_override_font_sizes/font_size = 16
 text = "Case description will appear here..."
 horizontal_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
-[node name="Spacer1" type="Control" parent="VBoxContainer"]
+[node name="Spacer1" type="Control" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 30)
 
-[node name="ActionsLabel" type="Label" parent="VBoxContainer"]
+[node name="ActionsPanel" type="Panel" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Available Actions:"
+
+[node name="ActionsVBox" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="ActionsLabel" type="Label" parent="ScrollContainer/VBoxContainer/ActionsPanel/ActionsVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 20
+text = "🔍 Available Actions"
 horizontal_alignment = 1
 
-[node name="ActionsContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ActionsSpacer" type="Control" parent="ScrollContainer/VBoxContainer/ActionsPanel/ActionsVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="ActionsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/ActionsPanel/ActionsVBox"]
 layout_mode = 2
 
-[node name="Spacer2" type="Control" parent="VBoxContainer"]
+[node name="Spacer2" type="Control" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 20)
 
-[node name="CluesLabel" type="Label" parent="VBoxContainer"]
+[node name="CluesPanel" type="Panel" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Discovered Clues:"
+
+[node name="CluesVBox" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CluesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="CluesLabel" type="Label" parent="ScrollContainer/VBoxContainer/CluesPanel/CluesVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 20
+text = "📝 Discovered Clues"
 horizontal_alignment = 1
 
-[node name="CluesContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="CluesSpacer" type="Control" parent="ScrollContainer/VBoxContainer/CluesPanel/CluesVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="CluesContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CluesPanel/CluesVBox"]
 layout_mode = 2
 
-[node name="Spacer3" type="Control" parent="VBoxContainer"]
+[node name="Spacer3" type="Control" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 30)
 
-[node name="BackButton" type="Button" parent="VBoxContainer"]
+[node name="BackButton" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Back to Menu"
+custom_minimum_size = Vector2(0, 50)
+theme_override_font_sizes/font_size = 18
+text = "🏠 Back to Menu"
 
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

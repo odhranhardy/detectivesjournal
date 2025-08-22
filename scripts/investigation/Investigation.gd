@@ -1,9 +1,9 @@
 extends Control
 
-@onready var case_title = $VBoxContainer/CaseTitle
-@onready var case_description = $VBoxContainer/CaseDescription
-@onready var actions_container = $VBoxContainer/ActionsContainer
-@onready var clues_container = $VBoxContainer/CluesContainer
+@onready var case_title = $ScrollContainer/VBoxContainer/TitleContainer/CaseTitle
+@onready var case_description = $ScrollContainer/VBoxContainer/TitleContainer/CaseDescription
+@onready var actions_container = $ScrollContainer/VBoxContainer/ActionsPanel/ActionsVBox/ActionsContainer
+@onready var clues_container = $ScrollContainer/VBoxContainer/CluesPanel/CluesVBox/CluesContainer
 
 func _ready():
 	print("Investigation scene loaded")
@@ -32,8 +32,15 @@ func _update_actions():
 		var action_data = CaseLoader.get_action_data(GameManager.current_case_data, action_id)
 		var button = Button.new()
 		button.text = action_data.get("title", action_id)
+		button.custom_minimum_size = Vector2(0, 45)
 		button.pressed.connect(_on_action_pressed.bind(action_id))
 		actions_container.add_child(button)
+		
+		# Add spacing between action buttons
+		if action_id != GameManager.available_actions[-1]:
+			var spacer = Control.new()
+			spacer.custom_minimum_size = Vector2(0, 8)
+			actions_container.add_child(spacer)
 
 func _update_clues():
 	"""Update the discovered clues list"""
@@ -44,11 +51,45 @@ func _update_clues():
 	# Add labels for each discovered clue
 	for clue_id in GameManager.discovered_clues:
 		var clue_data = CaseLoader.get_clue_data(GameManager.current_case_data, clue_id)
-		var label = Label.new()
-		label.text = "• " + clue_data.get("title", clue_id)
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		clues_container.add_child(label)
+		
+		# Create clue panel
+		var clue_panel = Panel.new()
+		var clue_vbox = VBoxContainer.new()
+		clue_panel.add_child(clue_vbox)
+		
+		# Clue title
+		var title_label = Label.new()
+		title_label.text = "🔍 " + clue_data.get("title", clue_id)
+		title_label.theme_override_colors.font_color = Color(0.9, 0.85, 0.7, 1)
+		title_label.theme_override_font_sizes.font_size = 18
+		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		clue_vbox.add_child(title_label)
+		
+		# Clue description
+		var desc_label = Label.new()
+		desc_label.text = clue_data.get("description", "No description available.")
+		desc_label.theme_override_colors.font_color = Color(0.8, 0.75, 0.65, 1)
+		desc_label.theme_override_font_sizes.font_size = 14
+		desc_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		clue_vbox.add_child(desc_label)
+		
+		# Add margins
+		clue_vbox.position = Vector2(15, 10)
+		clue_vbox.size = clue_panel.size - Vector2(30, 20)
+		clue_vbox.anchors_preset = Control.PRESET_FULL_RECT
+		clue_vbox.offset_left = 15
+		clue_vbox.offset_top = 10
+		clue_vbox.offset_right = -15
+		clue_vbox.offset_bottom = -10
+		
+		clues_container.add_child(clue_panel)
+		
+		# Add spacing between clues
+		if clue_id != GameManager.discovered_clues[-1]:
+			var spacer = Control.new()
+			spacer.custom_minimum_size = Vector2(0, 10)
+			clues_container.add_child(spacer)
 
 func _on_action_pressed(action_id: String):
 	"""Handle when an action button is pressed"""
