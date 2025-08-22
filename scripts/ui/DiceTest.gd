@@ -16,10 +16,6 @@ var target_difficulty: int = 11
 
 func _ready():
 	print("DiceTest scene loaded - dice rolling test ready")
-	$VBoxContainer/ObservationButton.pressed.connect(_on_observation_button_pressed)
-	$VBoxContainer/RhetoricButton.pressed.connect(_on_rhetoric_button_pressed)
-	roll_button.pressed.connect(_on_roll_button_pressed)
-	continue_button.pressed.connect(_on_continue_button_pressed)
 
 func _on_observation_button_pressed():
 	print("Testing Observation roll")
