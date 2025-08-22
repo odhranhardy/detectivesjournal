@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2sq7ug2kgsex"]
 
-[ext_resource type="Script" path="res://scripts/ui/DiceTest.gd" id="1_dicetest_script"]
+[ext_resource type="Script" uid="uid://b56socggulo1l" path="res://scripts/ui/DiceTest.gd" id="1_dicetest_script"]
 
 [node name="DiceTest" type="Control"]
 layout_mode = 3
