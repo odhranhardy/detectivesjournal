@@ -1,0 +1,124 @@
+{
+  "case_id": "missing_influencer",
+  "title": "The Missing Influencer",
+  "description": "Riley Chen (@RileysRealLife, 52K followers) disappeared after posting about visiting Moonbeam Café, but the café staff confirm they never showed up. Last seen 3 days ago.",
+  "initial_phase": "initial_investigation",
+  "phases": {
+    "initial_investigation": {
+      "title": "Initial Investigation",
+      "description": "It's 4:30 PM. You have until 6:00 PM before some locations close and people become unavailable.",
+      "time_limit": "6:00 PM",
+      "available_actions": [
+        "visit_cafe",
+        "analyze_social_media",
+        "interview_alex"
+      ]
+    },
+    "follow_up": {
+      "title": "Follow-up Investigation", 
+      "description": "It's 6:00 PM. Some new options are available, but time is running out.",
+      "time_limit": "8:00 PM",
+      "available_actions": [
+        "research_marcus",
+        "contact_taylor",
+        "search_apartment"
+      ]
+    }
+  },
+  "actions": {
+    "visit_cafe": {
+      "title": "Visit Moonbeam Café",
+      "description": "Talk to the staff about Riley's supposed visit.",
+      "skill_required": "rhetoric",
+      "difficulty": 12,
+      "success_clue": "cafe_discrepancy",
+      "failure_clue": "cafe_basic_info"
+    },
+    "analyze_social_media": {
+      "title": "Analyze Riley's Social Media",
+      "description": "Look for patterns in Riley's recent posts and follower interactions.",
+      "skill_required": "observation",
+      "difficulty": 11,
+      "success_clue": "posting_pattern_change",
+      "failure_clue": "surface_social_media"
+    },
+    "interview_alex": {
+      "title": "Interview Alex Chen",
+      "description": "Talk to Riley's sibling about recent events.",
+      "skill_required": "none",
+      "difficulty": 0,
+      "success_clue": "alex_background_info",
+      "failure_clue": "alex_background_info"
+    },
+    "research_marcus": {
+      "title": "Research Marcus Webb",
+      "description": "Investigate Riley's new manager's background.",
+      "skill_required": "observation", 
+      "difficulty": 13,
+      "success_clue": "marcus_warning_signs",
+      "failure_clue": "marcus_basic_info"
+    },
+    "contact_taylor": {
+      "title": "Contact Taylor (@TaylorMadeContent)",
+      "description": "Reach out to Riley's fellow influencer friend.",
+      "skill_required": "rhetoric",
+      "difficulty": 11,
+      "success_clue": "taylor_insider_info",
+      "failure_clue": "taylor_surface_info"
+    },
+    "search_apartment": {
+      "title": "Search Riley's Apartment",
+      "description": "Look for clues in Riley's living space.",
+      "skill_required": "observation",
+      "difficulty": 10,
+      "success_clue": "apartment_evidence",
+      "failure_clue": "apartment_basic"
+    }
+  },
+  "clues": {
+    "cafe_discrepancy": {
+      "title": "Café Security 'Malfunction'",
+      "description": "The barista Sam reveals that Riley seemed stressed during their last actual visit a week ago, and the security cameras mysteriously 'malfunctioned' on the day Riley claimed to visit."
+    },
+    "cafe_basic_info": {
+      "title": "Café Staff Confusion",
+      "description": "The staff confirm Riley didn't visit on the day they posted about it, but you don't learn much more."
+    },
+    "posting_pattern_change": {
+      "title": "Suspicious Posting Pattern",
+      "description": "Riley's recent posts show a dramatic shift in tone and timing. Followers are commenting about how 'different' Riley seems lately."
+    },
+    "surface_social_media": {
+      "title": "Basic Social Media Info",
+      "description": "Riley's posts seem normal on the surface, though the last post about the café was 3 days ago."
+    },
+    "alex_background_info": {
+      "title": "Family Concerns",
+      "description": "Alex reveals that Riley has been stressed about money and their new manager Marcus Webb. Riley mentioned feeling 'trapped' in recent conversations."
+    },
+    "marcus_warning_signs": {
+      "title": "Marcus Webb's Troubling History",
+      "description": "Online searches reveal complaints from other influencers about Marcus's aggressive tactics and questionable contracts."
+    },
+    "marcus_basic_info": {
+      "title": "Marcus Webb Basic Info",
+      "description": "Marcus Webb is Riley's manager. He seems to have a legitimate business, but you can't find much detail."
+    },
+    "taylor_insider_info": {
+      "title": "Industry Warning",
+      "description": "Taylor warns that Marcus has a reputation for isolating his clients and pushing them into uncomfortable situations for content."
+    },
+    "taylor_surface_info": {
+      "title": "Fellow Influencer Concern",
+      "description": "Taylor confirms they haven't heard from Riley in several days, which is unusual."
+    },
+    "apartment_evidence": {
+      "title": "Packed Suitcase and Plane Ticket",
+      "description": "You find a packed suitcase hidden under Riley's bed and a plane ticket to Portland for tomorrow, along with a note saying 'Had to get away from M. Will explain later.'"
+    },
+    "apartment_basic": {
+      "title": "Tidy Apartment",
+      "description": "Riley's apartment appears normal and tidy, though some personal items seem to be missing."
+    }
+  }
+}
