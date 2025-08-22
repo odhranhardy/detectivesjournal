@@ -80,3 +80,8 @@ horizontal_alignment = 1
 visible = false
 layout_mode = 2
 text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/ObservationButton" to="." method="_on_observation_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RhetoricButton" to="." method="_on_rhetoric_button_pressed"]
+[connection signal="pressed" from="DiceRollContainer/RollButton" to="." method="_on_roll_button_pressed"]
+[connection signal="pressed" from="DiceRollContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
