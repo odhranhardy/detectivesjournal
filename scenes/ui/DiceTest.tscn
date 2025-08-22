@@ -17,27 +17,27 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Dice Rolling Test"
 horizontal_alignment = 1
 
-[node name="ObservationButton" type="Button" parent="VBoxContainer"]
+[node name="ObservationButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Test Observation Roll"
 
-[node name="RhetoricButton" type="Button" parent="VBoxContainer"]
+[node name="RhetoricButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Test Rhetoric Roll"
 
-[node name="HardButton" type="Button" parent="VBoxContainer"]
+[node name="HardButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Test Hard Roll"
 
 [node name="DiceRollInstance" parent="." instance=ExtResource("1_dice_scene")]
 visible = false
 
-[connection signal="pressed" from="VBoxContainer/ObservationButton" to="." method="_on_observation_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/RhetoricButton" to="." method="_on_rhetoric_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ObservationButton" to="." method="_on_observation_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RhetoricButton" to="." method="_on_rhetoric_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
 [connection signal="dice_roll_complete" from="DiceRollInstance" to="." method="_on_dice_roll_complete"]

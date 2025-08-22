@@ -18,42 +18,42 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="SkillLabel" type="Label" parent="VBoxContainer"]
+[node name="SkillLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Rolling Observation (+2)"
 horizontal_alignment = 1
 
-[node name="DifficultyLabel" type="Label" parent="VBoxContainer"]
+[node name="DifficultyLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Target: 11 (Medium)"
 horizontal_alignment = 1
 
-[node name="RollButton" type="Button" parent="VBoxContainer"]
+[node name="RollButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Roll Dice"
 
-[node name="ResultContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ResultContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="DiceResultLabel" type="Label" parent="VBoxContainer/ResultContainer"]
-layout_mode = 2
-text = ""
-horizontal_alignment = 1
-
-[node name="TotalLabel" type="Label" parent="VBoxContainer/ResultContainer"]
+[node name="DiceResultLabel" type="Label" parent="CenterContainer/VBoxContainer/ResultContainer"]
 layout_mode = 2
 text = ""
 horizontal_alignment = 1
 
-[node name="OutcomeLabel" type="Label" parent="VBoxContainer/ResultContainer"]
+[node name="TotalLabel" type="Label" parent="CenterContainer/VBoxContainer/ResultContainer"]
 layout_mode = 2
 text = ""
 horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+[node name="OutcomeLabel" type="Label" parent="CenterContainer/VBoxContainer/ResultContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Continue"
 visible = false
 
-[connection signal="pressed" from="VBoxContainer/RollButton" to="." method="_on_roll_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RollButton" to="." method="_on_roll_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
