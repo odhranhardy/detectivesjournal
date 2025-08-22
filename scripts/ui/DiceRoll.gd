@@ -2,13 +2,13 @@ extends Control
 
 signal dice_roll_complete(success: bool, total: int)
 
-@onready var skill_label = $VBoxContainer/SkillLabel
-@onready var difficulty_label = $VBoxContainer/DifficultyLabel
-@onready var roll_button = $VBoxContainer/RollButton
-@onready var dice_result_label = $VBoxContainer/ResultContainer/DiceResultLabel
-@onready var total_label = $VBoxContainer/ResultContainer/TotalLabel
-@onready var outcome_label = $VBoxContainer/ResultContainer/OutcomeLabel
-@onready var continue_button = $VBoxContainer/ContinueButton
+@onready var skill_label = $CenterContainer/VBoxContainer/SkillLabel
+@onready var difficulty_label = $CenterContainer/VBoxContainer/DifficultyLabel
+@onready var roll_button = $CenterContainer/VBoxContainer/RollButton
+@onready var dice_result_label = $CenterContainer/VBoxContainer/ResultContainer/DiceResultLabel
+@onready var total_label = $CenterContainer/VBoxContainer/ResultContainer/TotalLabel
+@onready var outcome_label = $CenterContainer/VBoxContainer/ResultContainer/OutcomeLabel
+@onready var continue_button = $CenterContainer/VBoxContainer/ContinueButton
 
 var skill_name: String = ""
 var skill_modifier: int = 0

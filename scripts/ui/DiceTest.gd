@@ -1,7 +1,7 @@
 extends Control
 
 @onready var dice_roll = $DiceRollInstance
-@onready var test_buttons = $VBoxContainer
+@onready var test_buttons = $CenterContainer/VBoxContainer
 
 func _on_observation_button_pressed():
 	"""Test an Observation roll (Medium difficulty)"""
