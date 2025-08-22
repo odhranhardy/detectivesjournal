@@ -31,8 +31,8 @@ text = "The Detective's Journal"
 horizontal_alignment = 1
 
 [node name="Spacer1" type="Control" parent="VBoxContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -47,8 +47,8 @@ layout_mode = 2
 text = "Test Dice System"
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="DebugLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
