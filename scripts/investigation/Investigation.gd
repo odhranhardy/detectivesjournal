@@ -60,16 +60,16 @@ func _update_clues():
 		# Clue title
 		var title_label = Label.new()
 		title_label.text = "🔍 " + clue_data.get("title", clue_id)
-		title_label.theme_override_colors.font_color = Color(0.9, 0.85, 0.7, 1)
-		title_label.theme_override_font_sizes.font_size = 18
+		title_label.add_theme_color_override("font_color", Color(0.9, 0.85, 0.7, 1))
+		title_label.add_theme_font_size_override("font_size", 18)
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		clue_vbox.add_child(title_label)
 		
 		# Clue description
 		var desc_label = Label.new()
 		desc_label.text = clue_data.get("description", "No description available.")
-		desc_label.theme_override_colors.font_color = Color(0.8, 0.75, 0.65, 1)
-		desc_label.theme_override_font_sizes.font_size = 14
+		desc_label.add_theme_color_override("font_color", Color(0.8, 0.75, 0.65, 1))
+		desc_label.add_theme_font_size_override("font_size", 14)
 		desc_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		clue_vbox.add_child(desc_label)
