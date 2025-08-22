@@ -15,18 +15,71 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -25.0
-offset_right = 75.0
-offset_bottom = 25.0
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "TEST LABEL"
+text = "Dice Rolling Test"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="ObservationButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "TEST BUTTON"
+text = "Test Observation Roll"
+
+[node name="RhetoricButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Test Rhetoric Roll"
+
+[node name="DiceRollContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="SkillLabel" type="Label" parent="DiceRollContainer"]
+layout_mode = 2
+text = "Rolling Observation (+2)"
+horizontal_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="DiceRollContainer"]
+layout_mode = 2
+text = "Target: 11 (Medium)"
+horizontal_alignment = 1
+
+[node name="RollButton" type="Button" parent="DiceRollContainer"]
+layout_mode = 2
+text = "Roll Dice"
+
+[node name="DiceResultLabel" type="Label" parent="DiceRollContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="TotalLabel" type="Label" parent="DiceRollContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="OutcomeLabel" type="Label" parent="DiceRollContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="DiceRollContainer"]
+layout_mode = 2
+text = "Continue"
+visible = false
