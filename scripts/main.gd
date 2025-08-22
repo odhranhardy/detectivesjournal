@@ -23,15 +23,17 @@ func _update_continue_button():
 
 func _on_new_game_pressed():
 	print("Starting new case...")
-	# TODO: Load case selection scene or start first case
-	GameManager.start_case("missing_influencer")
-	print("Started case: The Missing Influencer")
+	if GameManager.start_case("missing_influencer"):
+		print("Case loaded successfully - transitioning to investigation")
+		get_tree().change_scene_to_file("res://scenes/investigation/Investigation.tscn")
+	else:
+		print("Failed to load case")
 
 func _on_continue_pressed():
 	print("Loading saved game...")
 	if SaveSystem.load_game():
-		print("Game loaded successfully")
-		# TODO: Load investigation scene with current case
+		print("Game loaded successfully - transitioning to investigation")
+		get_tree().change_scene_to_file("res://scenes/investigation/Investigation.tscn")
 	else:
 		print("Failed to load game")
 
