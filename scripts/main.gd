@@ -1,7 +1,7 @@
 # scripts/Main.gd
 extends Control
 
-@onready var continue_button = $VBoxContainer/ContinueButton
+@onready var continue_button = $VBoxContainer/MenuPanel/MenuContainer/ContinueButton
 
 func _ready():
 	print("=== The Detective's Journal ===")
