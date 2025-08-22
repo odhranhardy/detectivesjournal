@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://test_dice_scene"]
-
-[ext_resource type="PackedScene" uid="uid://briyp4rbn00e6" path="res://scenes/ui/DiceRoll.tscn" id="1_dice_scene"]
+[gd_scene format=3 uid="uid://test_dice_scene"]
 
 [node name="DiceTest" type="Control"]
 layout_mode = 3
@@ -8,36 +6,17 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Dice Rolling Test"
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+text = "TEST LABEL"
 horizontal_alignment = 1
-
-[node name="ObservationButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Test Observation Roll"
-
-[node name="RhetoricButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Test Rhetoric Roll"
-
-[node name="HardButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Test Hard Roll"
-
-[node name="DiceRollInstance" parent="." instance=ExtResource("1_dice_scene")]
-visible = false
-
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ObservationButton" to="." method="_on_observation_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/RhetoricButton" to="." method="_on_rhetoric_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
-[connection signal="dice_roll_complete" from="DiceRollInstance" to="." method="_on_dice_roll_complete"]
+vertical_alignment = 1
